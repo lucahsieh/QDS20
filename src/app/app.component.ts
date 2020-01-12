@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+// declare var hello: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,4 +13,8 @@ export class AppComponent {
   ngOnInit(){
   }
 
+  // result = hello();
+  constructor(){
+    // this.result;
+  }
 }

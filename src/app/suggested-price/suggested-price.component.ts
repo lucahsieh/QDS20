@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var suggestedPrice: any;
+
 @Component({
   selector: 'app-suggested-price',
   templateUrl: './suggested-price.component.html',
@@ -17,4 +19,10 @@ export class SuggestedPriceComponent implements OnInit {
   ngOnInit() {
   }
 
+  result = suggestedPrice();
+  constructor() { 
+    this.result;
+  }
+  ngOnInit() {
+  }
 }
