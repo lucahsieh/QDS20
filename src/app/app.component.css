@@ -1,0 +1,26 @@
+*{
+    margin: 10px;
+}
+
+>>>body .ui-widget {
+    margin:6px;
+}
+
+>>>mat-expansion-panel {
+    width: 620px;
+  }
+>>>.mat-accordion>.mat-expansion-panel-spacing:last-child, .mat-accordion>:last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+>>>mat-toolbar{
+    margin-top: 0px;
+}
+
+>>>app-first-page{
+    margin-top: -10px;
+}
+>>>body .ui-button.ui-state-default.ui-button-success, body .ui-buttonset.ui-button-success > .ui-button.ui-state-default{
+    left: 40%;
+}

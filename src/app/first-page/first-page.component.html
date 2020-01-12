@@ -1,3 +1,10 @@
+
+<mat-toolbar color="primary">  
+    <mat-toolbar-row>
+<h1>Fero</h1>
+</mat-toolbar-row>
+</mat-toolbar>
+
 <mat-toolbar>  
     <mat-toolbar-row>
         <p-dropdown [options]="listings" [(ngModel)]="selectedListing" placeholder="Select a Listing" optionLabel="name" [showClear]="true"></p-dropdown>
@@ -5,43 +12,55 @@
     </mat-toolbar-row>
     <mat-toolbar-row>
         <p-dropdown [options]="months" [(ngModel)]="selectedMonth" placeholder="Select a Month" optionLabel="name" [showClear]="true"></p-dropdown>
-        <input type="text" pInputText placeholder="Estimated Price" [(ngModel)]="targetPrice">   
-<p-dropdown [options]="neighs" [(ngModel)]="selectedNeigh" placeholder="Select a Neighborhood" optionLabel="name" [showClear]="true"></p-dropdown>
-<div *ngIf="selectedListing.name && selectedListing.name === 'House'">
-<p-dropdown [options]="types" [(ngModel)]="selectedType" placeholder="Select a Type" optionLabel="name" [showClear]="true"></p-dropdown>
-</div>
+    <p-dropdown [options]="neighs" [(ngModel)]="selectedNeigh" placeholder="Select a Neighborhood" optionLabel="name" [showClear]="true"></p-dropdown>
+    <div *ngIf="selectedListing.name && selectedListing.name === 'House'">
+        <p-dropdown [options]="types" [(ngModel)]="selectedType" placeholder="Select a Type" optionLabel="name" [showClear]="true"></p-dropdown>
+    </div>
+    <input type="text" pInputText placeholder="Estimated Price" [(ngModel)]="targetPrice">   
+
 
 </mat-toolbar-row>
 <mat-toolbar-row>
 
-<p-button icon="pi pi-check" label="Search" (click)="handleSearch($event)"></p-button>
+<p-button  label="Search" (click)="handleSearch($event)"></p-button>
 
 
 
 </mat-toolbar-row>
 </mat-toolbar>
-
-<h1>{{suggestedResult | currency}}</h1>
+<div *ngIf="suggestedResult" id="resultF">
+<button pButton type="button" label="Recommended Price: {{suggestedResult | currency}}" class="ui-button-success"></button>
+</div>
 
 <!-- line chart -->
-<mat-accordion>
-    <mat-expansion-panel>
+<mat-accordion *ngIf="suggestedResult"> 
+    <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
           
         </mat-panel-title>
         <mat-panel-description>
-            Pro Members Only
+            <button pButton type="button" label="Pro Members Only" class="ui-button-rounded ui-button-warning"></button> 
         </mat-panel-description>
       </mat-expansion-panel-header>
       <!-- line chart price -->
-      <h3>Price History</h3>
-      <p-chart type="line" [data]="data"></p-chart>
-      <!-- bar chart -->
+      <table>
+          <tr>
+              <td>
+                <h3>Price History</h3>
+                <p-chart type="line" [data]="data" width="200px" height="200px" [responsive]="false"></p-chart>          
+              </td>
+              <td>
+                <h3>Google House Rental Search Trend</h3>
+      <p-chart type="line" [data]="data2" width="200px" height="200px" [responsive]="false"></p-chart>
+
+              </td>
+          </tr>
+      </table>
+           <!-- bar chart -->
+           <h3>Profit Increase Recommendations</h3>
       <app-bar-chart></app-bar-chart>
       <!-- google trend chart -->
-      <h3>Google Search Trend</h3>
-      <p-chart type="line" [data]="data2"></p-chart>
-    </mat-expansion-panel>
+          </mat-expansion-panel>
   
   </mat-accordion>
