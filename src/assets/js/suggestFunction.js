@@ -1,4 +1,3 @@
-function suggestedPrice(){
     function LineFitter() {
         this.count = 0;
         this.sumX = 0;
@@ -22,12 +21,11 @@ function suggestedPrice(){
         }
     };
     
-    function linearProject(data, x) {
+    function suggestedPrice(data, x) {
         var fitter = new LineFitter();
         for (var i = 0; i < data.length; i++) {
             fitter.add(i, data[i]);
         }
         return fitter.project(x);
     }
-    console.log(linearProject([69.66, 70.22, 86.22, 90.00, 70], 5));    
-}
+    // console.log(linearProject([69.66, 70.22, 86.22, 90.00, 70], 5));    
