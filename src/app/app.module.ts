@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FindAveragePriceNextYearMonthComponent } from './find-average-price-next-year-month/find-average-price-next-year-month.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FindAveragePriceNextYearMonthComponent
   ],
   imports: [
     BrowserModule,
