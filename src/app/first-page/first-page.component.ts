@@ -8,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstPageComponent implements OnInit {
 
-  constructor() { }
+  targetPrice:string;
+  cities: City[];
+  selectedCity: City;
+
+
+  constructor() {
+    this.cities = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+  ];
+   }
 
   ngOnInit() {
   }
@@ -38,6 +51,9 @@ export class FirstPageComponent implements OnInit {
     return filtered;
   }
 
-
-
 }
+
+class City{
+    
+}
+

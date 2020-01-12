@@ -4,8 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import {AutoCompleteModule} from 'primeng/autocomplete';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material';
+import {ChartModule} from 'primeng/chart';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +18,7 @@ import { FindAveragePriceNextYearMonthComponent } from './find-average-price-nex
 import { SuggestedPriceComponent } from './suggested-price/suggested-price.component';
 import { GoogleTrendComponent } from './google-trend/google-trend.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 
@@ -24,6 +29,7 @@ import { FirstPageComponent } from './first-page/first-page.component';
     SuggestedPriceComponent,
     GoogleTrendComponent,
     FirstPageComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,12 @@ import { FirstPageComponent } from './first-page/first-page.component';
     AppRoutingModule,
     AutoCompleteModule,
     FormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatInputModule,
+    ChartModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
