@@ -27,5 +27,4 @@
             fitter.add(i, data[i]);
         }
         return fitter.project(x);
-    }
-    // console.log(linearProject([69.66, 70.22, 86.22, 90.00, 70], 5));    
+    }   
