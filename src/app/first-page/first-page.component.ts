@@ -17,6 +17,7 @@ declare var suggestedPrice: any;
 export class FirstPageComponent implements OnInit {
 
   labelsOfPriceChart:string[];
+  data: any;
 
   targetPrice:string;
   cates: DropdownItems[];
@@ -88,6 +89,7 @@ export class FirstPageComponent implements OnInit {
     var result = suggestedPrice(this.avgPerYearArr, this.avgPerYearArr.length);
     console.log(result);
     this.updateLables();
+    this.updateLinechart();
     this.suggestedResult = result;
   }
 
@@ -155,6 +157,21 @@ export class FirstPageComponent implements OnInit {
       avg = (avg + arr[i].price)/2;
     }
     return avg;
+  }
+
+  /** update line chart */
+  updateLinechart(){
+    this.data = {
+      labels: this.labelsOfPriceChart,
+      datasets: [
+          {
+              label: "Price History",
+              data: this.avgPerYearArr,
+              fill: false,
+              borderColor: '#4bc0c0'
+          }
+      ]
+  }
   }
 
 }

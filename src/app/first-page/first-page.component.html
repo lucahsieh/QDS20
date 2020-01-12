@@ -22,10 +22,8 @@
 </mat-toolbar>
 
 <h1>{{suggestedResult | currency}}</h1>
-<div *ngFor="let avgThatYear of avgPerYearArr; let i = index">
-<p>{{avgThatYear}}</p>
-</div>
 
-<div *ngIf="suggestedResult">
-<app-line-chart [priceHistory]="avgPerYearArr" [labels]="labelsOfPriceChart"></app-line-chart>
-</div>
+<!-- line chart -->
+<!-- <div *ngIf="suggestedResult"> -->
+    <p-chart type="line" [data]="data"></p-chart>
+<!-- </div> -->

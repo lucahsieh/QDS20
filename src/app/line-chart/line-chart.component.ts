@@ -12,20 +12,21 @@ export class LineChartComponent implements OnInit {
   @Input() priceHistory:number[];
 
     constructor() {
-        this.data = {
-            labels: this.labels,
-            datasets: [
-                {
-                    label: '',
-                    data: this.priceHistory,
-                    fill: false,
-                    borderColor: '#4bc0c0'
-                }
-            ]
-        }
+        
     }
 
   ngOnInit() {
+    this.data = {
+      labels: "",
+      datasets: [
+          {
+              label: this.labels,
+              data: this.priceHistory,
+              fill: false,
+              borderColor: '#4bc0c0'
+          }
+      ]
+  }
   }
 
 }
