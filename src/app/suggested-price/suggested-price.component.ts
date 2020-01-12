@@ -13,11 +13,7 @@ export class SuggestedPriceComponent implements OnInit {
   sumX2 = 0;
   sumXY = 0;
   sumY = 0;
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
 
   result = suggestedPrice();
   constructor() { 
