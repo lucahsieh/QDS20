@@ -20,14 +20,18 @@ export class GoogleTrendComponent implements OnInit {
   }
 
   getAvgByYearMonth(month:string){
+    var trendLabel = [];
+    var trendValue = [];
     var history: { [years: string] : number; } = {};
     for(var i = 0; i < this.gTrend.length; i++){
       var value = this.gTrend[i].Category;
       var yyyy = value.substr(0,4);
       var mm = value.substr(5,2);
       var pop = value.substr(8,2); //2020-01,59
-      if(mm == month)
-        history[yyyy] = Number(pop);
+      if(mm == month){
+        trendLabel.push(yyyy);
+        trendValue.push(Number(pop));
+      }
     }
     console.log("google trend of \"Vancouver Airbnb\"");
     console.log(history);

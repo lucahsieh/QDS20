@@ -24,9 +24,24 @@
 <h1>{{suggestedResult | currency}}</h1>
 
 <!-- line chart -->
-<!-- <div *ngIf="suggestedResult"> -->
-    <p-chart type="line" [data]="data"></p-chart>
-
-    <app-bar-chart></app-bar-chart>
-
-<!-- </div> -->
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          
+        </mat-panel-title>
+        <mat-panel-description>
+            Pro Members Only
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- line chart price -->
+      <h3>Price History</h3>
+      <p-chart type="line" [data]="data"></p-chart>
+      <!-- bar chart -->
+      <app-bar-chart></app-bar-chart>
+      <!-- google trend chart -->
+      <h3>Google Search Trend</h3>
+      <p-chart type="line" [data]="data2"></p-chart>
+    </mat-expansion-panel>
+  
+  </mat-accordion>

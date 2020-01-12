@@ -13,6 +13,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {ButtonModule} from 'primeng/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -51,7 +52,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     DropdownModule,
     MatListModule,
     MatToolbarModule,
-    ButtonModule
+    ButtonModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

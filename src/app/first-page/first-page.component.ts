@@ -5,6 +5,7 @@ import  *  as  april2019  from  '../../jsonMonths/april2019.json';
 import  *  as  oct2017  from  '../../jsonMonths/oct2017.json';
 import  *  as  oct2018  from  '../../jsonMonths/oct2018.json';
 import  *  as  oct2019  from  '../../jsonMonths/oct2019.json';
+import  *  as  googleTrend  from  '../../jsonMonths/trendingData.json';
 
 declare var suggestedPrice: any;
 
@@ -18,6 +19,8 @@ export class FirstPageComponent implements OnInit {
 
   labelsOfPriceChart:string[];
   data: any;
+  data2: any;
+
 
   targetPrice:string;
   cates: DropdownItems[];
@@ -41,7 +44,10 @@ export class FirstPageComponent implements OnInit {
   avgPerYearArr:number[];
 
   suggestedResult:number;
+  gTrend: googleTrendData[];
 
+  trendValue:number[];
+  trendLabel:string[];
   
 
   ngOnInit() {
@@ -53,6 +59,10 @@ export class FirstPageComponent implements OnInit {
     rawData["201810"] = (oct2018  as  any).default;
     rawData["201910"] = (oct2019  as  any).default;
     this.rawData = rawData;
+    var gTrend = (googleTrend  as  any).default;
+    this.gTrend = gTrend;
+    this.getAvgByYearMonth("04");
+    this.updateGoogleTrendGUI();
 
   }
 
@@ -91,6 +101,8 @@ export class FirstPageComponent implements OnInit {
     this.updateLables();
     this.updateLinechart();
     this.suggestedResult = result;
+    this.getAvgByYearMonth(this.selectedMonth.code);
+    this.updateGoogleTrendGUI();
   }
 
   updateLables(){
@@ -101,8 +113,46 @@ export class FirstPageComponent implements OnInit {
     }
   }
 
+  updateGoogleTrendGUI(){
+    this.data2 = {
+      labels: this.trendLabel,
+      datasets: [
+          {
+              label: "",
+              data: this.trendValue,
+              fill: false,
+              borderColor: '#4bc0c0'
+          }
+      ]
+   }
+  }
 
 
+
+
+
+  /** Google trend */
+  getAvgByYearMonth(month:string){
+    var trendLabel = [];
+    var trendValue = [];
+    var history: { [years: string] : number; } = {};
+    for(var i = 0; i < this.gTrend.length; i++){
+      var value = this.gTrend[i].Category;
+      var yyyy = value.substr(0,4);
+      var mm = value.substr(5,2);
+      var pop = value.substr(8,2); //2020-01,59
+      if(mm == month){
+        trendLabel.push(yyyy);
+        trendValue.push(Number(pop));
+      }
+    }
+    console.log("looookkhere!!" + trendLabel);
+    console.log("looookkhere!!" + trendValue);
+    this.trendLabel = trendLabel;
+    this.trendValue = trendValue;
+    console.log("google trend of \"Vancouver Airbnb\"");
+    console.log(history);
+  }
 
 
   /**
@@ -171,7 +221,7 @@ export class FirstPageComponent implements OnInit {
               borderColor: '#4bc0c0'
           }
       ]
-  }
+   }
   }
 
 }
@@ -185,4 +235,6 @@ interface JsonMap{
   price:number;
   room_type:string;
 }
-
+interface googleTrendData{
+  Category:string;
+}
