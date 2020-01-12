@@ -23,6 +23,7 @@ import { SuggestedPriceComponent } from './suggested-price/suggested-price.compo
 import { GoogleTrendComponent } from './google-trend/google-trend.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 
 
@@ -34,6 +35,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     GoogleTrendComponent,
     FirstPageComponent,
     LineChartComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,

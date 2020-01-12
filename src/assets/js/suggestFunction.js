@@ -28,3 +28,14 @@
         }
         return fitter.project(x);
     }   
+    
+    // Check function for future
+    function check() {
+        var basic = 103;
+        var add = 0;
+        if(document.getElementById("id_1").checked) {
+          add += 7;
+        }var p = basic + add;
+        var price = p;
+        return price;
+       }

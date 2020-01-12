@@ -32,7 +32,6 @@ export class GoogleTrendComponent implements OnInit {
     console.log("google trend of \"Vancouver Airbnb\"");
     console.log(history);
   }
-
 }
 
 interface googleTrendData{
