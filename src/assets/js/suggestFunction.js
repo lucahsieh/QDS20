@@ -28,6 +28,8 @@
         }
         return fitter.project(x);
     }   
+    
+    // Check function for future
     function check() {
         var basic = 103;
         var add = 0;

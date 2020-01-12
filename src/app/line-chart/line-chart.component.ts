@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
@@ -8,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LineChartComponent implements OnInit {
 
-  // @import data: any;
-
-    data: any;
+  data: any;
 
     constructor() {
         this.data = {
