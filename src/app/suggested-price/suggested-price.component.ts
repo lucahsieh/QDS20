@@ -14,11 +14,6 @@ export class SuggestedPriceComponent implements OnInit {
   sumXY = 0;
   sumY = 0;
   
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   result = suggestedPrice();
   constructor() { 
     this.result;
