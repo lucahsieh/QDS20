@@ -1,0 +1,19 @@
+<p>first-page works!</p>
+
+<h3 class="first">Single</h3>
+<p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name" [showClear]="true"></p-dropdown>
+<p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+
+<h3 class="first">Basic</h3>
+<p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle" (completeMethod)="filterCountrySingle($event)" field="name" [size]="30"
+    placeholder="Countries" [minLength]="1"></p-autoComplete>
+<span style="margin-left:10px">Country: {{country ? country.name||country : 'none'}}</span>
+
+
+<h3>Price</h3>
+<span class="ui-float-label">
+    <input id="float-input" type="text" size="30" pInputText [(ngModel)]="targetPrice"> 
+    <label for="float-input">Price</label>
+</span>
+
+
