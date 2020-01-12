@@ -14,7 +14,6 @@ export class SuggestedPriceComponent implements OnInit {
   sumXY = 0;
   sumY = 0;
 
-
   result = suggestedPrice();
   constructor() { 
     this.result;
