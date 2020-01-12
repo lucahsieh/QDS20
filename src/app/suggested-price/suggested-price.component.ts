@@ -1,0 +1,52 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-suggested-price',
+  templateUrl: './suggested-price.component.html',
+  styleUrls: ['./suggested-price.component.css']
+})
+export class SuggestedPriceComponent implements OnInit {
+  count = 0;
+  sumX = 0;
+  sumX2 = 0;
+  sumXY = 0;
+  sumY = 0;
+  
+  constructor() { }
+
+  ngOnInit() {
+  }
+  LineFitter() {
+  this.count = 0;
+  this.sumX = 0;
+  this.sumX2 = 0;
+  this.sumXY = 0;
+  this.sumY = 0;
+}
+
+LineFitter.prototype = {
+  'add': function (x, y) {
+    this.count++;
+    this.sumX += x;
+    this.sumX2 += x * x;
+    this.sumXY += x * y;
+    this.sumY += y;
+  },
+  'project': function (x) {
+    var det = this.count * this.sumX2 - this.sumX * this.sumX;
+    var offset = (this.sumX2 * this.sumY - this.sumX * this.sumXY) / det;
+    var scale = (this.count * this.sumXY - this.sumX * this.sumY) / det;
+    return offset + x * scale;
+  }
+};
+
+linearProject(data, x) {
+  var fitter = new LineFitter();
+  for (var i = 0; i < data.length; i++) {
+    fitter.add(i, data[i]);
+  }
+  return fitter.project(x);
+}
+console.log(linearProject([69.66, 70.22, 86.22, 90.00, 70], 5));
+
+}
