@@ -10,6 +10,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import {ChartModule} from 'primeng/chart';
 import {DropdownModule} from 'primeng/dropdown';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {ButtonModule} from 'primeng/button';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,7 +46,10 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     MatSelectModule,
     MatInputModule,
     ChartModule,
-    DropdownModule
+    DropdownModule,
+    MatListModule,
+    MatToolbarModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

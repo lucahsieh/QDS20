@@ -1,19 +1,31 @@
-<p>first-page works!</p>
+<mat-toolbar>  
+    <mat-toolbar-row>
+        <p-dropdown [options]="listings" [(ngModel)]="selectedListing" placeholder="Select a Listing" optionLabel="name" [showClear]="true"></p-dropdown>
+        <p-dropdown [options]="cates" [(ngModel)]="selectedCate" placeholder="Select a Category" optionLabel="name" [showClear]="true"></p-dropdown>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <p-dropdown [options]="months" [(ngModel)]="selectedMonth" placeholder="Select a Month" optionLabel="name" [showClear]="true"></p-dropdown>
+        <input type="text" pInputText placeholder="Estimated Price" [(ngModel)]="targetPrice">   
+<p-dropdown [options]="neighs" [(ngModel)]="selectedNeigh" placeholder="Select a Neighborhood" optionLabel="name" [showClear]="true"></p-dropdown>
+<div *ngIf="selectedListing.name && selectedListing.name === 'House'">
+<p-dropdown [options]="types" [(ngModel)]="selectedType" placeholder="Select a Type" optionLabel="name" [showClear]="true"></p-dropdown>
+</div>
 
-<h3 class="first">Single</h3>
-<p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name" [showClear]="true"></p-dropdown>
-<p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+</mat-toolbar-row>
+<mat-toolbar-row>
 
-<h3 class="first">Basic</h3>
-<p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle" (completeMethod)="filterCountrySingle($event)" field="name" [size]="30"
-    placeholder="Countries" [minLength]="1"></p-autoComplete>
-<span style="margin-left:10px">Country: {{country ? country.name||country : 'none'}}</span>
+<p-button icon="pi pi-check" label="Search" (click)="handleSearch($event)"></p-button>
 
 
-<h3>Price</h3>
-<span class="ui-float-label">
-    <input id="float-input" type="text" size="30" pInputText [(ngModel)]="targetPrice"> 
-    <label for="float-input">Price</label>
-</span>
 
+</mat-toolbar-row>
+</mat-toolbar>
 
+<h1>{{suggestedResult | currency}}</h1>
+<div *ngFor="let avgThatYear of avgPerYearArr; let i = index">
+<p>{{avgThatYear}}</p>
+</div>
+
+<div *ngIf="suggestedResult">
+<app-line-chart [priceHistory]="avgPerYearArr" [labels]="labelsOfPriceChart"></app-line-chart>
+</div>

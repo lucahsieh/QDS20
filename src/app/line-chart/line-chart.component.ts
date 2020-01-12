@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-line-chart',
@@ -8,22 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class LineChartComponent implements OnInit {
 
   data: any;
+  @Input() labels:string[];
+  @Input() priceHistory:number[];
 
     constructor() {
         this.data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: this.labels,
             datasets: [
                 {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    label: '',
+                    data: this.priceHistory,
                     fill: false,
                     borderColor: '#4bc0c0'
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderColor: '#565656'
                 }
             ]
         }
