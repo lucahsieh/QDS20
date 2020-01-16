@@ -74,16 +74,23 @@ export class FirstPageComponent implements OnInit {
       {name: 'Sell', code: 'Sell'}
     ];
     this.listings = [
-      {name: 'House', code: 'House'}
+      {name: 'House', code: 'House'},
+      {name: 'Car', code: 'Car'},
+      {name: 'Table', code: 'Table'}
     ];
     this.months = [
+      {name: 'January', code: '04'},
+      {name: 'Feburary', code: '04'},
+      {name: 'March', code: '04'},
       {name: 'April', code: '04'},
+      {name: 'May', code: '04'},
       {name: 'October', code: '10'}   //TODO: month 1-12;
     ];
     this.neighs = [
       {name: 'Downtown Eastside', code: 'Downtown Eastside'},  //TODO: need all neighborhoods in array
       {name: 'Arbutus Ridge', code: 'Arbutus Ridge'},
-      {name: 'Kitsilano', code: 'Kitsilano'}
+      {name: 'Kitsilano', code: 'Kitsilano'},
+      {name: 'Downtown', code: 'Downtown'}
     ];
     this.types = [
       {name: 'Entire home/apt', code: 'Entire home/apt'},  //TODO: need all neighborhoods in array
