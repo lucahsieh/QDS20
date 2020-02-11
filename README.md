@@ -1,5 +1,9 @@
 # Qds20
 
+This is the BCIT hackathon data analytics project. We untilized airbnb room rental price history and build an model to predict the suggested price for home owner to rent their house next year.
+
+## Run angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
 ## Development server
